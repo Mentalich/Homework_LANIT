@@ -106,6 +106,10 @@ public class Kotik {
     public void eat(){
         eat(4,"Canned food");
     }
+    //метод сравнения голоса котиков
+    public boolean compareVoice(Kotik Q){
+        return Objects.equals(Q.getVoice(), getVoice());
+        }
     //день из жизни котика
     public String[] liveAnotherDay(){
         String[] day= new String[24];
