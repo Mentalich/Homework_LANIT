@@ -15,15 +15,12 @@ public class Application {
         //Выводим имя и вес котика Тишки
         System.out.println("Cat's name is " + Tishka.getName() + ", and he weights " + Tishka.getWeight() + " kilos");
         //Выводим сравнение голосов котиков
-        switch (String.valueOf(Tishka.compareVoice(Tom))){
-            case "false":
-                System.out.println("Cats sound different");
-                break;
-            case "true":
-                System.out.println("Cats sound same");
-                break;
-        }
+        System.out.println(compareVoice(Tom,Tishka));
         //Выводим количество котиков
         System.out.println(Tishka.getCount());
+    }
+    //метод сравнения голоса котиков
+    public static boolean compareVoice(Kotik Q, Kotik W){
+        return Q.getVoice()==W.getVoice();
     }
 }
