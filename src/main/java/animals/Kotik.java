@@ -99,12 +99,12 @@ public class Kotik {
     public void eat(int FoodValue){
         satiety=satiety+FoodValue;
     }
-    public void eat(String FoodName,int FoodValue){
+    public void eat(int FoodValue,String FoodName){
         System.out.println(name+" ate "+FoodName+", restoring "+FoodValue+" satiety");
         satiety=satiety+FoodValue;
     }
     public void eat(){
-        eat("Canned food",4);
+        eat(4,"Canned food");
     }
     //день из жизни котика
     public String[] liveAnotherDay(){
