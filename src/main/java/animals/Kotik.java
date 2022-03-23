@@ -33,7 +33,7 @@ public class Kotik {
     public int getWeight() {
         return weight;
     }
-    public int getCount(){
+    public static int getCount(){
         return count;
         }
     //сеттеры

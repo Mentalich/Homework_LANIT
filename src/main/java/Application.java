@@ -25,7 +25,7 @@ public class Application {
                 break;
         }
         //Выводим количество котиков
-        System.out.println(Kotik2.getCount());
+        System.out.println(Kotik.getCount());
     }
     //метод сравнения голоса котиков
     public static boolean compareVoice(Kotik Q, Kotik W){
