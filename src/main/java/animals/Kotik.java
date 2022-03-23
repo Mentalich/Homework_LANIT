@@ -33,7 +33,9 @@ public class Kotik {
     public int getWeight() {
         return weight;
     }
-    public int getCount(){return count;}
+    public int getCount(){
+        return count;
+        }
     //сеттеры
     public void setName(String name) {
         this.name = name;
