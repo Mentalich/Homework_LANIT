@@ -106,6 +106,7 @@ public class Kotik {
     public void eat(){
         eat(4,"Canned food");
     }
+
     //день из жизни котика
     public String[] liveAnotherDay(){
         String[] day= new String[24];
