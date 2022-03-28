@@ -1,15 +1,7 @@
 package animals;
 
-public class Kotik {
-    //I set defaults, just in case
-    private String name = "Tom";
-    private String voice = "Mute";
-    private int satiety = 5;
-    private int weight = 4; //in kilos, I gueeeessss?
-
-    private static int count=0; //определяем счётчик
-
-    //первый конструктор
+public class Kotik extends Carnivorous implements Voice, Run{
+    //конструктор
     public Kotik(String name, String voice, int satiety, int weight) {
         this.name = name;
         this.voice = voice;
@@ -17,37 +9,15 @@ public class Kotik {
         this.weight = weight;
         count++;
     }
-    //второй, пустой конструктор
-    public Kotik(){count++;}
-    /*Геттеры, по заданию было указано вывести в консоль
-    количество котиков, поэтому я добавила ещё и геттер для счётчика */
-    public String getName() {
-        return name;
+    public Kotik(){
+        setName("Tishka");
+        setVoice("purring");
+        setSatiety(5);
+        setWeight(3);
     }
+    @Override
     public String getVoice() {
         return voice;
-    }
-    public int getSatiety() {
-        return satiety;
-    }
-    public int getWeight() {
-        return weight;
-    }
-    public static int getCount(){
-        return count;
-        }
-    //сеттеры
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setVoice(String voice) {
-        this.voice = voice;
-    }
-    public void setSatiety(int satiety) {
-        this.satiety = satiety;
-    }
-    public void setWeight(int weight) {
-        this.weight = weight;
     }
     //вводим константу количества методов
     private static final int METHODS = 5;
@@ -79,7 +49,7 @@ public class Kotik {
             satiety--;
             return true;}
     }
-    public boolean walk(){
+    public boolean run(){
         if (satiety<=0){
             return false;
         }
@@ -108,7 +78,6 @@ public class Kotik {
     public void eat(){
         eat(4,"Canned food");
     }
-
     //день из жизни котика
     public String[] liveAnotherDay(){
         String[] day= new String[24];
@@ -137,7 +106,7 @@ public class Kotik {
                         day[counter]=counter+" - ate";}
                 break;
                 case 4:
-                    if (walk()){
+                    if (run()){
                         day[counter]=counter+" - walked";}
                     else {
                         eat();
