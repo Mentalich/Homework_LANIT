@@ -39,7 +39,5 @@ public abstract class Animal{
         this.weight = weight;
     }
 //
-    public void eat(Food food){
-        satiety += food.getEnergy();
-    }
+    public abstract void eat(Food food);
 }
