@@ -18,6 +18,10 @@ public class Deer extends Herbivore implements Run, Voice{
         count++;
     }
 
+    public Deer(String name) {
+        setName(name);
+    }
+
     @Override
     public Size getSize() {
         return Size.LARGE;

@@ -22,7 +22,7 @@ public class Tuna extends Carnivorous implements Swim{
 
     @Override
     public Size getSize() {
-        return Size.SMALL;
+        return Size.MEDIUM;
     }
 
     @Override

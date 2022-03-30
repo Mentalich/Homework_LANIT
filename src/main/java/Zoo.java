@@ -5,13 +5,11 @@ import food.Grass;
 import model.Aviary;
 import model.Size;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-import java.util.function.DoubleToIntFunction;
 
 public class Zoo {
+    static Aviary carnivorousAviary = new Aviary(Size.SMALL);
+    static Aviary herbivoreAviary = new Aviary(Size.MEDIUM);
     public static void main(String[] args) {
         Kotik kotik = new Kotik();
         Duck duck = new Duck();
@@ -34,18 +32,12 @@ public class Zoo {
             pond[i].swim();
         }*///second homework, createPond check and output
 
-        Aviary carnivorousAviary = new Aviary(Size.SMALL);
-        Aviary herbivoreAviary = new Aviary(Size.MEDIUM);
         fillCarnivorousAviary(carnivorousAviary);
-        private static Carnivorous getCarnivorous(String name){
-            carnivorousAviary.getAnimal(name);
-        }
-        getCarnivorous("Tuna");
+        fillHerbivoreAviary(herbivoreAviary);
+        //getHerbivore("Tuna");
+        //getCarnivorous("Kotik");
     }
 
-    private static Carnivorous getCarnivorous(String name) {
-        return null;
-    }
 
     /*private static Swim[] createPond() {
         Swim[] pond = new Swim[6];
@@ -64,37 +56,39 @@ public class Zoo {
     }*///second homework,createPond method
 
     private static void fillCarnivorousAviary(Aviary aviary) {
-        for (int i=0;i<6;i++){
-            switch ((int)(Math.random()*3)){
-                case 0:
-                    aviary.addAnimal(new Tuna());
-                    break;
-                case 1:
-                    aviary.addAnimal(new Kotik());
-                    break;
-                case 2:
-                    aviary.addAnimal(new Eagle());
-                    break;
-            }
-        }
-    }
-    private static void fillHerbivoreAviary(Aviary aviary){for (int i=0;i<6;i++){
-        switch ((int)(Math.random()*3)){
-            case 0:
-                aviary.addAnimal(new Fish());
+        switch (aviary.getSize()){
+            case SMALL:
+                for (int i=0;i<6;i++){aviary.addAnimal(new Kotik(getRandomName()));}
                 break;
-            case 1:
-                aviary.addAnimal(new Duck());
+            case MEDIUM:
+                for (int i=0;i<6;i++){aviary.addAnimal(new Tuna(getRandomName()));}
                 break;
-            case 2:
-                aviary.addAnimal(new Deer());
+            case LARGE:
+                for (int i=0;i<6;i++){aviary.addAnimal(new Deer(getRandomName()));}
                 break;
         }
-    }}
-
-    private static Herbivore getHerbivore(String name){
-        return null;
     }
-
-
+    private static void fillHerbivoreAviary(Aviary aviary){
+        switch (aviary.getSize()){
+            case SMALL:
+                for (int i=0;i<6;i++){aviary.addAnimal(new Duck(getRandomName()));}
+                break;
+            case MEDIUM:
+                for (int i=0;i<6;i++){aviary.addAnimal(new Fish(getRandomName()));}
+                break;
+            case LARGE:
+                for (int i=0;i<6;i++){aviary.addAnimal(new Deer(getRandomName()));}
+                break;
+        }
+    }
+    private static Animal getHerbivore(String name){
+        return herbivoreAviary.getAnimal(name);
+    }
+    private static Animal getCarnivorous(String name){
+        return carnivorousAviary.getAnimal(name);
+    }
+    private static String getRandomName(){
+        Random random=new Random();
+        return String.valueOf(random.nextInt(50));
+    }
 }

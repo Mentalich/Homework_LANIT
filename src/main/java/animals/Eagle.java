@@ -24,7 +24,7 @@ public class Eagle extends Carnivorous implements Fly,Voice{
 
     @Override
     public Size getSize() {
-        return Size.MEDIUM;
+        return Size.LARGE;
     }
 
     @Override
