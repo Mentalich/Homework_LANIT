@@ -1,6 +1,7 @@
 package animals;
 
 import food.Food;
+import model.Size;
 
 public abstract class Animal{
     String name = "Chimera";
@@ -12,7 +13,11 @@ public abstract class Animal{
     public Animal(){
         count++;
     }
-//Getters
+    public Animal(String name) {
+        this.name = name;
+        count++;
+    }
+    //Getters
     public String getName() {
         return name;
     }
@@ -25,6 +30,7 @@ public abstract class Animal{
     public static int getCount(){
         return count;
     }
+    public abstract Size getSize();
 //Setters
     public void setName(String name) {
         this.name = name;

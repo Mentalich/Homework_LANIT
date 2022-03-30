@@ -1,7 +1,6 @@
 package animals;
 
-import food.Food;
-import food.Meat;
+import food.*;
 
 public abstract class Carnivorous extends Animal{
     @Override
@@ -11,7 +10,11 @@ public abstract class Carnivorous extends Animal{
             System.out.println(getSatiety());
         }
         else {
-            System.out.println(name+" can't eat this food");
+            try {
+                throw new WrongFoodException(name+" cant eat this food");
+            } catch (WrongFoodException hehe) {
+                hehe.printStackTrace();
+            }
         }
     }
 }

@@ -2,6 +2,7 @@ package animals;
 
 import food.Food;
 import food.Grass;
+import food.WrongFoodException;
 
 public abstract class Herbivore extends Animal{
     @Override
@@ -11,7 +12,11 @@ public abstract class Herbivore extends Animal{
             System.out.println(getSatiety());
         }
         else {
-            System.out.println(name+" can't eat this food");
+            try {
+                throw new WrongFoodException(name+" cant eat this food");
+            } catch (WrongFoodException hehe) {
+                hehe.printStackTrace();
+            }
         }
     }
 }

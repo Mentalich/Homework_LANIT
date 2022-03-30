@@ -1,5 +1,7 @@
 package animals;
 
+import model.Size;
+
 public class Kotik extends Carnivorous implements Voice, Run{
     //конструктор
     public Kotik(String name, String voice, int satiety, int weight) {
@@ -14,7 +16,17 @@ public class Kotik extends Carnivorous implements Voice, Run{
         setVoice("purring");
         setSatiety(5);
         setWeight(3);
+        count++;
     }
+    public Kotik(String name){
+        this.name = name;
+        count++;
+    }
+    @Override
+    public Size getSize() {
+        return Size.SMALL;
+    }
+
     @Override
     public String getVoice() {
         return voice;

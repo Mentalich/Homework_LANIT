@@ -1,5 +1,7 @@
 package animals;
 
+import model.Size;
+
 public class Eagle extends Carnivorous implements Fly,Voice{
     public Eagle(String name, String voice, int satiety, int weight) {
         this.name = name;
@@ -14,6 +16,15 @@ public class Eagle extends Carnivorous implements Fly,Voice{
         setSatiety(4);
         setWeight(3);
         count++;
+    }
+    public Eagle(String name){
+        this.name = name;
+        count++;
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.MEDIUM;
     }
 
     @Override

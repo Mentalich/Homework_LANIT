@@ -1,5 +1,7 @@
 package animals;
 
+import model.Size;
+
 public class Duck extends Herbivore implements Run, Swim, Fly, Voice{
     //construct
     public Duck(String name, String voice, int satiety, int weight) {
@@ -15,6 +17,15 @@ public class Duck extends Herbivore implements Run, Swim, Fly, Voice{
         setSatiety(4);
         setWeight(2);
         count++;
+    }
+    public Duck(String name){
+        this.name = name;
+        count++;
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.SMALL;
     }
 
     @Override

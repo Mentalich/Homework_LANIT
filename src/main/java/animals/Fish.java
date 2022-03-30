@@ -1,5 +1,7 @@
 package animals;
 
+import model.Size;
+
 public class Fish extends Herbivore implements Swim {
     public Fish(String name, int satiety, int weight) {
         this.name=name;
@@ -12,6 +14,15 @@ public class Fish extends Herbivore implements Swim {
         setSatiety(3);
         setWeight(1);
         count++;
+    }
+    public Fish(String name){
+        this.name = name;
+        count++;
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.MEDIUM;
     }
 
     @Override

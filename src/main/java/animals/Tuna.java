@@ -1,5 +1,7 @@
 package animals;
 
+import model.Size;
+
 public class Tuna extends Carnivorous implements Swim{
     public Tuna(String name, int satiety, int weight) {
         this.name=name;
@@ -12,6 +14,15 @@ public class Tuna extends Carnivorous implements Swim{
         setSatiety(3);
         setWeight(1);
         count++;
+    }
+    public Tuna(String name){
+        this.name = name;
+        count++;
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.SMALL;
     }
 
     @Override
