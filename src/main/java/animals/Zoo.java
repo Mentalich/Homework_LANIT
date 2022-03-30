@@ -8,8 +8,8 @@ import model.Size;
 import java.util.Random;
 
 public class Zoo {
-    static Aviary carnivorousAviary = new Aviary(Size.SMALL);
-    static Aviary herbivoreAviary = new Aviary(Size.MEDIUM);
+    private static Aviary<Carnivorous> carnivorousAviary = new Aviary(Size.SMALL);
+    private static Aviary<Herbivore> herbivoreAviary = new Aviary(Size.MEDIUM);
     public static void main(String[] args) {
         Kotik kotik = new Kotik();
         Duck duck = new Duck();
@@ -37,7 +37,6 @@ public class Zoo {
         //getHerbivore("Tuna");
         //getCarnivorous("Kotik");
     }
-
 
     /*private static Swim[] createPond() {
         Swim[] pond = new Swim[6];
@@ -81,10 +80,10 @@ public class Zoo {
                 break;
         }
     }
-    private static Animal getHerbivore(String name){
+    private static Herbivore getHerbivore(String name){
         return herbivoreAviary.getAnimal(name);
     }
-    private static Animal getCarnivorous(String name){
+    private static Carnivorous getCarnivorous(String name){
         return carnivorousAviary.getAnimal(name);
     }
     private static String getRandomName(){

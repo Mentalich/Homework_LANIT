@@ -1,15 +1,13 @@
 package model;
 
 import animals.Animal;
-import animals.Herbivore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Aviary<Animals>{
+public class Aviary<Type extends Animal>{
     private Size size;
-    private Map<String, Animal> Aviary = new HashMap<>(6);
-    private Animal animal;
+    private Map<String, Type> aviaryMap = new HashMap<>(6);
 
     public Aviary(Size size) {
         this.size = size;
@@ -19,15 +17,17 @@ public class Aviary<Animals>{
         return size;
     }
 
-    public void addAnimal(Animal animal){
-        if (animal.getSize()==size){Aviary.put(animal.getName(), animal);}
+    public void addAnimal(Type animal){
+        if (animal.getSize()==size){
+            aviaryMap.put(animal.getName(), animal);}
         else throw new WrongSizeException("Animal is wrongly sized");
     }
-    public Animal getAnimal(String name){
-        return Aviary.get(name);
+    public Type getAnimal(String name){
+        return aviaryMap.get(name);
     }
-    public void removeAnimal(String name){
-        Aviary.remove(name);
+    public boolean removeAnimal(String name){
+        aviaryMap.remove(name);
+        return true;
     }
 
 
