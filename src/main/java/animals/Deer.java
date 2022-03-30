@@ -20,6 +20,7 @@ public class Deer extends Herbivore implements Run, Voice{
 
     public Deer(String name) {
         setName(name);
+        count++;
     }
 
     @Override

@@ -32,8 +32,8 @@ public class Zoo {
             pond[i].swim();
         }*///second homework, createPond check and output
 
-        fillCarnivorousAviary(carnivorousAviary);
-        fillHerbivoreAviary(herbivoreAviary);
+        fillCarnivorousAviary();
+        fillHerbivoreAviary();
         //getHerbivore("Tuna");
         //getCarnivorous("Kotik");
     }
@@ -54,29 +54,29 @@ public class Zoo {
         return pond;
     }*///second homework,createPond method
 
-    private static void fillCarnivorousAviary(Aviary aviary) {
-        switch (aviary.getSize()){
+    private static void fillCarnivorousAviary() {
+        switch (carnivorousAviary.getSize()){
             case SMALL:
-                for (int i=0;i<6;i++){aviary.addAnimal(new Kotik(getRandomName()));}
+                for (int i=0;i<6;i++){carnivorousAviary.addAnimal(new Kotik(getRandomName()));}
                 break;
             case MEDIUM:
-                for (int i=0;i<6;i++){aviary.addAnimal(new Tuna(getRandomName()));}
+                for (int i=0;i<6;i++){carnivorousAviary.addAnimal(new Tuna(getRandomName()));}
                 break;
             case LARGE:
-                for (int i=0;i<6;i++){aviary.addAnimal(new Deer(getRandomName()));}
+                for (int i=0;i<6;i++){carnivorousAviary.addAnimal(new Eagle(getRandomName()));}
                 break;
         }
     }
-    private static void fillHerbivoreAviary(Aviary aviary){
-        switch (aviary.getSize()){
+    private static void fillHerbivoreAviary(){
+        switch (herbivoreAviary.getSize()){
             case SMALL:
-                for (int i=0;i<6;i++){aviary.addAnimal(new Duck(getRandomName()));}
+                for (int i=0;i<6;i++){herbivoreAviary.addAnimal(new Duck(getRandomName()));}
                 break;
             case MEDIUM:
-                for (int i=0;i<6;i++){aviary.addAnimal(new Fish(getRandomName()));}
+                for (int i=0;i<6;i++){herbivoreAviary.addAnimal(new Fish(getRandomName()));}
                 break;
             case LARGE:
-                for (int i=0;i<6;i++){aviary.addAnimal(new Deer(getRandomName()));}
+                for (int i=0;i<6;i++){herbivoreAviary.addAnimal(new Deer(getRandomName()));}
                 break;
         }
     }
