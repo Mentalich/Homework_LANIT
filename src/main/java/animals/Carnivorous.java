@@ -4,7 +4,7 @@ import food.*;
 
 public abstract class Carnivorous extends Animal{
     @Override
-    public void eat(Food food) throws WrongFoodException {
+    public void eat(Food food) {
         if (food instanceof Meat) {
             setSatiety(satiety+food.getEnergy());
             System.out.println(getSatiety());
@@ -15,6 +15,6 @@ public abstract class Carnivorous extends Animal{
             } catch (WrongFoodException e) {
                 e.printStackTrace();
             }
-        }    
+        }
     }
 }
