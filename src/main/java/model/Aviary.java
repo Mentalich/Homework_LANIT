@@ -3,11 +3,10 @@ package model;
 import animals.Animal;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Aviary<Type extends Animal>{
     private Size size;
-    private Map<String, Type> aviaryMap = new HashMap<>(6);
+    private HashMap<String, Type> aviaryMap = new HashMap<>(6);
 
     public Aviary(Size size) {
         this.size = size;

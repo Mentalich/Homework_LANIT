@@ -12,7 +12,10 @@ public abstract class Herbivore extends Animal{
             System.out.println(getSatiety());
         }
         else {
-            throw new WrongFoodException(name+" cant eat this food");
-        }
+            try {
+                throw new WrongFoodException(name+" cant eat this food");
+            } catch (WrongFoodException e) {
+                e.printStackTrace();
+            }
     }
 }
