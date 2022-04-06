@@ -2,6 +2,7 @@ package animals;
 
 import food.Food;
 import model.Size;
+import food.WrongFoodException;
 
 public abstract class Animal{
     String name = "Chimera";
