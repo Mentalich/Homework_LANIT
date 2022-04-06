@@ -6,17 +6,13 @@ import food.WrongFoodException;
 
 public abstract class Herbivore extends Animal{
     @Override
-    public void eat(Food food) {
+    public void eat (Food food) throws WrongFoodException {
         if (food instanceof Grass) {
             setSatiety(satiety+food.getEnergy());
             System.out.println(getSatiety());
         }
         else {
-            try {
                 throw new WrongFoodException(name+" cant eat this food");
-            } catch (WrongFoodException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
