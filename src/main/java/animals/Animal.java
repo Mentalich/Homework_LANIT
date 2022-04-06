@@ -45,5 +45,5 @@ public abstract class Animal{
         this.weight = weight;
     }
 //
-    public abstract void eat(Food food);
+    public abstract void eat throws WrongFoodException (Food food);
 }

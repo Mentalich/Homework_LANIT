@@ -4,7 +4,7 @@ import food.Food;
 import food.Grass;
 import food.WrongFoodException;
 
-public abstract class Herbivore extends Animal{
+public abstract class Herbivore extends Animal throws WrongFoodException{
     @Override
     public void eat(Food food) {
         if (food instanceof Grass) {
