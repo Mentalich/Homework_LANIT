@@ -1,4 +1,5 @@
 import model.Calculator;
+import model.CalculatorException;
 
 import java.util.Scanner;
 

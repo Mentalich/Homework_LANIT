@@ -15,7 +15,7 @@ public class Calculator {
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
             throw new CalculatorException("Превышен порог значений");
         }
-        return String.valueOf(result);
+        return String.valueOf(Math.ceil(result * 1000) / 1000);;
     }
 
     private static double calculate(String operator, double a, double b) {

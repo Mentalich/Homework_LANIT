@@ -7,19 +7,27 @@ import org.testng.annotations.Test;
 public class NegativeCalculatorTest {
     // todo: @DataProvider for negativeData
     // todo: negative test
-    @DataProvider(name = "negativeTest")
+    @DataProvider(name = "negativeData")
     public Object[][] negativeData(){
         return new Object[][]{
-                {"_","-4","-5"},
-                {"*","100000000000000000000000000","-5"},
-                {"+","1","1"},
-                {null, null, null}
-
+                {"_","-4","-5"},//out of bounds symbol
+                {"*","100000000000000000000000000","-5"},//out of bounds number
+                {"/", "5","0"}//divide on zero
         };
     }
-    @Test(dataProvider = "negativeData")
-    public void negativeTest(String[] params){
-        Assert.assertEquals(Calculator.execute(params), new CalculatorException());
+
+    @DataProvider(name = "nullData")
+    public Object[]nullData(){
+        return new Object[]{null,null,null};
     }
 
+    @Test(dataProvider = "negativeData", expectedExceptions = CalculatorException.class)
+    public void negativeTest(String[] params){
+        Calculator.execute(params);
+    }
+
+    @Test(dataProvider = "nullData", expectedExceptions = NullPointerException.class)
+    public void nullTest(String[] params){
+        Calculator.execute(params);
+    }
 }
