@@ -9,22 +9,22 @@ public class PositiveCalculatorTest {
     @DataProvider(name = "positiveData")
     public Object[][] positiveData(){
         return new Object[][]{
-                {"+","2","2","4.0"},
-                {"+","2","3","5.0"},
-                {"+","5","5","10.0"},
-                {"-","-3","-3","0.0"},
-                {"+","-3","-3","-6.0"},
-                {"/","-3","-3","1.0"},
-                {"*","-4","-5","20.0"},
-                {"/", "25","4", "6.25"},
-                {"/", "25","-4","-6.25"},
-                {"*", "25","0.2","5.0"},
-                {"-", "2.0","1.1", "0.9"},
+                {"+","2","2",4.0},
+                {"+","2","3",5.0},
+                {"+","5","5",10.0},
+                {"-","-3","-3",0.0},
+                {"+","-3","-3",-6.0},
+                {"/","-3","-3",1.0},
+                {"*","-4","-5",20.0},
+                {"/", "25","4", 6.25},
+                {"/", "25","-4",-6.25},
+                {"*", "25","0.2",5.0},
+                {"-", "2.0","1.1", 0.9}
         };
     }
     @Test(dataProvider = "positiveData")
-    public void positiveTest(String param, String value1, String value2, String result){
+    public void positiveTest(String param, String value1, String value2, double result){
         String[] input = {param, value1, value2};
-        Assert.assertEquals(Calculator.execute(input),result);
+        Assert.assertEquals(Calculator.execute(input),String.valueOf(result));
     }
 }
