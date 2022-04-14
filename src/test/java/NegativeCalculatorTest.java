@@ -15,8 +15,7 @@ public class NegativeCalculatorTest {
                 {"*","2500000","20000"},
                 {"/", "5","0"},//divide on zero
                 {"+","one","two"},
-                {" "," "," "},
-                {null,null,null},
+                {" "," "," "}
         };
     }
     @Test(dataProvider = "negativeData", expectedExceptions = CalculatorException.class)
