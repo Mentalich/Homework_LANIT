@@ -11,8 +11,8 @@ public class NegativeCalculatorTest {
     public Object[][] negativeData(){
         return new Object[][]{
                 {"_","-4","-5"},//out of bounds symbol
-                {"*","1000000","-50000"},//out of bounds number
-                {"*","2500000","20000"},
+                {"*","10000000","-50000"},//out of bounds number
+                {"*","25000000","20000"},
                 {"/", "5","0"},//divide on zero
                 {"+","one","two"},
                 {"","",""}
