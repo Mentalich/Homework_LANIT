@@ -12,9 +12,11 @@ public class NegativeCalculatorTest {
         return new Object[][]{
                 {"_","-4","-5"},//out of bounds symbol
                 {"*","100000000000000000000000000","-5000000000000000000000000"},//out of bounds number
+                {"*","2500000","20000"},
                 {"/", "5","0"},//divide on zero
                 {"+","one","two"},
-                {null,null,null}
+                {" "," "," "},
+                {null,null,null},
         };
     }
     @Test(dataProvider = "negativeData", expectedExceptions = CalculatorException.class)
