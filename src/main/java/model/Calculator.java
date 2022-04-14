@@ -7,15 +7,17 @@ public class Calculator {
     public static String execute(String[] params) {
 
         Pattern pattern = Pattern.compile("-?\\d+(\\.\\d+)?");
-        if (!(pattern.matcher(params[1] + params[2]).matches())){
-            throw new CalculatorException("Не является числом!");
-        }
         for (int i=0;i<3;i++) {
             if (params[i] == null) {
                 throw new CalculatorException("Пустая строка!");
             }
         }
-
+        for (int j = 1; j < 3; j++) {
+            if (!(pattern.matcher(params[j]).matches())){
+                throw new CalculatorException("Не является числом!");
+            }
+        }
+        
         String operator = params[0];
         double value1;
         double value2;
