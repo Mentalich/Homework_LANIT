@@ -20,7 +20,8 @@ public class PositiveCalculatorTest {
                 {"/", "25","-4",-6.25},
                 {"*", "25","0.2",5.0},
                 {"-", "2.0","1.1", 0.9},
-                {"+", String.valueOf(Integer.MAX_VALUE), String.valueOf(Integer.MIN_VALUE), -1.0}
+                {"+", "2147483646", "1", 2147483647.0},
+                
         };
     }
     @Test(dataProvider = "positiveData")
