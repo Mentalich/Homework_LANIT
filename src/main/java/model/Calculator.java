@@ -1,7 +1,5 @@
 package model;
 
-import org.testng.annotations.DataProvider;
-
 public class Calculator {
 
     public static String execute(String[] params) {
@@ -13,9 +11,9 @@ public class Calculator {
         value2 = Double.valueOf(params[2]);
         double result = calculate(operator, value1, value2);
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-            throw new CalculatorException("Превышен порог значений");
+            throw new CalculatorException("Превышен порmог значений");
         }
-        return String.valueOf(Math.ceil(result * 1000) / 1000);;
+        return String.valueOf(Math.ceil(result * 1000) / 1000);
     }
 
     private static double calculate(String operator, double a, double b) {
