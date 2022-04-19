@@ -21,22 +21,12 @@ public class Calculator {
         String operator = params[0];
         double value1;
         double value2;
-
         value1 = Double.valueOf(params[1]);
-        if (value1 > Integer.MAX_VALUE || value1 < Integer.MIN_VALUE) {
-            throw new CalculatorException("Превышен порог значений");
-        }
-
         value2 = Double.valueOf(params[2]);
-        if (value2 > Integer.MAX_VALUE || value2 < Integer.MIN_VALUE) {
-            throw new CalculatorException("Превышен порог значений");
-        }
-
         double result = calculate(operator, value1, value2);
         if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
             throw new CalculatorException("Превышен порог значений");
         }
-
         return String.valueOf(Math.ceil(result * 1000) / 1000);
     }
 
