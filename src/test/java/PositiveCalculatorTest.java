@@ -20,7 +20,8 @@ public class PositiveCalculatorTest {
                 {"/", "25","-4",-6.25},
                 {"*", "25","0.2",5.0},
                 {"-", "2.0","1.1", 0.9},
-                {"+", "2147483648", "-1", 2147483647.0},
+                {"+", Integer.MAX_VALUE,"0", Double.valueOf(Integer.MAX_VALUE)},
+                {"+", Integer.MIN_VALUE,"0", Double.valueOf(Integer.MIN_VALUE)}
                 
         };
     }
