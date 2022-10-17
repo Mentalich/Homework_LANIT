@@ -16,6 +16,10 @@ public class CreateTicketTest extends BaseTest {
         Ticket ticket = createTicket(buildNewTicket(Status.OPEN,3));
         Ticket ticketActual=getTicket(ticket.getId());
         Assert.assertEquals(ticket.getId(), ticketActual.getId());
+        Assert.assertEquals(ticket.getQueue(), ticketActual.getQueue());
+        Assert.assertEquals(ticket.getPriority(), ticketActual.getPriority());
+        Assert.assertEquals(ticket.getTitle(),ticketActual.getTitle());
+        Assert.assertEquals(ticket.getDescription(),ticketActual.getDescription());
     }
 
     protected Ticket getTicket(int id) {
