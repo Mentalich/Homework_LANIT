@@ -1,15 +1,18 @@
 package web;
 
+import elements.MainMenu;
 import io.qameta.allure.Step;
 import models.Ticket;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.AbstractPage;
+import pages.*;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 public class HelpdeskUITest {
@@ -23,7 +26,7 @@ public class HelpdeskUITest {
         setupDriver();
     }
 
-    @Step("Загрузить конфигурацилнные файлы")
+    @Step("Загрузить конфигурационные файлы")
     private void loadProperties() throws IOException {
         // Читаем конфигурационные файлы в System.properties
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("config.properties"));
@@ -45,15 +48,35 @@ public class HelpdeskUITest {
     @Test
     public void createTicketTest() {
         // todo: шаги тест-кейса
-        // ...
-        ticket = buildNewTicket();
-        
+        ticket=buildNewTicket();
+        driver.get(System.getProperty("site.url"));
+        HelpdeskBasePage helpdeskBasePage = new HelpdeskBasePage();
+        CreateTicketPage createTicketPage = new CreateTicketPage();
+        LoginPage loginPage = new LoginPage();
+        helpdeskBasePage.mainMenu().clickOnNewTicketButton();
+        createTicketPage.createTicket(ticket);
+        ViewPage viewPage= new ViewPage();
+        viewPage.saveId(ticket);
+        viewPage.checkTicket(ticket);
+        createTicketPage.mainMenu().clickOnLogInButton();
+        loginPage.login(System.getProperty("user"),System.getProperty("password"));
+        loginPage.mainMenu().searchTicket(ticket);
+        TicketsPage ticketsPage = new TicketsPage();
+        ticketsPage.openTicket(ticket);
+        TicketPage ticketPage = new TicketPage();
+        ticketPage.checkTicket(ticket);
         // ...
     }
 
     private Ticket buildNewTicket() {
         Ticket ticket = new Ticket();
-        // todo: заполнить поля тикета
+        ticket.setQueue(1);
+        ticket.setTitle("Summary of the problem");
+        ticket.setDescription("Description of your issue");
+        ticket.setPriority(3);
+        ticket.setDue_date(LocalDateTime.now());
+        ticket.setDue_dateTesting(LocalDateTime.now());
+        ticket.setSubmitter_email("mentalich@gmail.com");
         return ticket;
     }
 

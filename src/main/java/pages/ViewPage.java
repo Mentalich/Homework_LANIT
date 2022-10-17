@@ -17,7 +17,7 @@ public class ViewPage extends HelpdeskBasePage {
 
     /* Инициализация сразу при объявлении элемента.
        Элемент должен присутствовать на странице браузера в момент создания объекта страницы new ViewPage() */
-    private WebElement queue = driver.findElement(By.xpath("//th[contains(text(), 'Queue:')]"));
+    private WebElement queue = driver.findElement(By.xpath("/html/body/div/div/div/table/thead/tr"));
     private WebElement email = driver.findElement(By.xpath("//th[text()='Submitter E-Mail']/following-sibling::td[1]"));
     private WebElement priority = driver.findElement(By.xpath("//th[text()='Priority']/following-sibling::td[1]"));
 
@@ -44,7 +44,7 @@ public class ViewPage extends HelpdeskBasePage {
         Assert.assertTrue(getTicketTitle().contains(ticket.getTitle()), "Имя тикета не соответствует");
         Assert.assertTrue(getTicketQueue().contains(Dictionaries.getQueue(ticket.getQueue())), "очередь не соответствует");
         Assert.assertTrue(getTicketEmail().contains(ticket.getSubmitter_email()), "inconsistency");
-        Assert.assertTrue(getDescription().contains(ticket.getDescription()),"inconsistency");
+        Assert.assertTrue(getDescription().contains(ticket.getDescription()), "inconsistency");
         return this;
     }
 
@@ -64,19 +64,19 @@ public class ViewPage extends HelpdeskBasePage {
     public String getTicketQueue(){
         ExpectedCondition<WebElement> condition=ExpectedConditions.visibilityOfElementLocated(captionLocator);
         WebElement ticketQueue = new  WebDriverWait(driver,5).until(condition);
-        return ticketQueue.getText();
+        return queue.getText();
     }
     @Step("email")
     public String getTicketEmail(){
         ExpectedCondition<WebElement> condition=ExpectedConditions.visibilityOfElementLocated(captionLocator);
         WebElement ticketEmail=new WebDriverWait(driver,5).until(condition);
-        return ticketEmail.getText();
+        return email.getText();
     }
     @Step("description")
     public String getDescription(){
         ExpectedCondition<WebElement> condition=ExpectedConditions.visibilityOfElementLocated(captionLocator);
         WebElement ticketDesc=new WebDriverWait(driver,5).until(condition);
-        return ticketDesc.getText();
+        return description.getText();
     }
 
     @Step("Сохранить id тикета в объект")

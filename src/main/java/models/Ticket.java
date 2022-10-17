@@ -3,27 +3,19 @@ package models;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Locale;
 
 public class Ticket {
 
     private String title;
     private String due_date;
-    private File file;
-    int id;
-    String assigned_to;
-    String created;
-    String modified;
-    String submitter_email;
-    int status;
-    boolean on_hold;
-    String description;
-    String resolution;
-    int priority;
-    String last_escalation;
-    String secret_key;
-    int queue;
-    int kbitem;
-    int merged_to;
+    private String due_dateTesting;
+    private File file=null;
+    private Integer id;
+    private String submitter_email;
+    private String description;
+    private Integer priority;
+    private Integer queue;
 
 
     public int getId() {
@@ -34,52 +26,12 @@ public class Ticket {
         this.id = id;
     }
 
-    public String getAssigned_to() {
-        return assigned_to;
-    }
-
-    public void setAssigned_to(String assigned_to) {
-        this.assigned_to = assigned_to;
-    }
-
-    public String getCreated() {
-        return created;
-    }
-
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
-    public String getModified() {
-        return modified;
-    }
-
-    public void setModified(String modified) {
-        this.modified = modified;
-    }
-
     public String getSubmitter_email() {
         return submitter_email;
     }
 
     public void setSubmitter_email(String submitter_email) {
         this.submitter_email = submitter_email;
-    }
-
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public boolean isOn_hold() {
-        return on_hold;
-    }
-
-    public void setOn_hold(boolean on_hold) {
-        this.on_hold = on_hold;
     }
 
     public String getDescription() {
@@ -90,14 +42,6 @@ public class Ticket {
         this.description = description;
     }
 
-    public String getResolution() {
-        return resolution;
-    }
-
-    public void setResolution(String resolution) {
-        this.resolution = resolution;
-    }
-
     public int getPriority() {
         return priority;
     }
@@ -106,44 +50,12 @@ public class Ticket {
         this.priority = priority;
     }
 
-    public String getLast_escalation() {
-        return last_escalation;
-    }
-
-    public void setLast_escalation(String last_escalation) {
-        this.last_escalation = last_escalation;
-    }
-
-    public String getSecret_key() {
-        return secret_key;
-    }
-
-    public void setSecret_key(String secret_key) {
-        this.secret_key = secret_key;
-    }
-
     public int getQueue() {
         return queue;
     }
 
     public void setQueue(int queue) {
         this.queue = queue;
-    }
-
-    public int getKbitem() {
-        return kbitem;
-    }
-
-    public void setKbitem(int kbitem) {
-        this.kbitem = kbitem;
-    }
-
-    public int getMerged_to() {
-        return merged_to;
-    }
-
-    public void setMerged_to(int merged_to) {
-        this.merged_to = merged_to;
     }
 
     public String getTitle() {
@@ -157,6 +69,9 @@ public class Ticket {
     public String getDue_date() {
         return due_date;
     }
+    public String getDue_dateTesting(){
+        return due_dateTesting;
+    }
 
     // обычный сеттер
     public void setDue_date(String due_date) {
@@ -166,6 +81,10 @@ public class Ticket {
     // перегруженный сеттер, который принимает дату и форматирует её в строку по шаблону
     public void setDue_date(LocalDateTime due_date) {
         this.due_date = due_date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss"));
+    }
+
+    public void setDue_dateTesting(LocalDateTime due_dateTesting) {
+        this.due_dateTesting = due_dateTesting.format(DateTimeFormatter.ofPattern("LLL d, YYYY, h:mm").withLocale(Locale.ENGLISH));
     }
 
     public File getFile() {

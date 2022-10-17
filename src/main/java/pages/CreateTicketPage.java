@@ -3,8 +3,10 @@ package pages;
 import io.qameta.allure.Step;
 import models.Dictionaries;
 import models.Ticket;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import java.io.File;
 
@@ -15,23 +17,27 @@ public class CreateTicketPage extends HelpdeskBasePage {
 
     @FindBy(id = "id_queue")
     private WebElement selectQueue;
-
-    @FindBy(id = "id_title")
+    @FindBy(id="id_title")
     private WebElement inputProblem;
-
     // todo: добавить остальные поля формы
     @FindBy(id = "id_body")
     private WebElement descriptionProblem;
     @FindBy(id = "id_priority")
     private WebElement priorityForm;
-    @FindBy(id = "id_due_on")
+    @FindBy(id = "id_due_date")
     private WebElement due_onForm;
     @FindBy(id = "id_attachment")
     private WebElement attachment;
     @FindBy(id = "id_submitter_email")
     private WebElement submitter_email;
+
     @FindBy(css = "[type='submit']")
     private WebElement submitTicketButton;
+
+
+    public CreateTicketPage() {
+        PageFactory.initElements(driver, this);
+    }
 
     // todo: проинициализировать элементы
 
@@ -42,13 +48,11 @@ public class CreateTicketPage extends HelpdeskBasePage {
         setDescriptionProblem(ticket.getDescription());
         setPriority(ticket.getPriority());
         setDue_onForm(ticket.getDue_date());
-        //setAttachment(ticket.getFile)
         setSubmitter_email(ticket.getSubmitter_email());
 
         clickOnSubmitButton();
         return this;
     }
-
     @Step("Ввести имя проблемы: {text}")
     public void setInputProblem(String text) {
         inputProblem.sendKeys(text);
@@ -63,8 +67,6 @@ public class CreateTicketPage extends HelpdeskBasePage {
     public void setPriority(int priority){priorityForm.sendKeys(Dictionaries.getPriority(priority));}
     @Step("Задаём дату")
     public void setDue_onForm(String dueOnForm){due_onForm.sendKeys(dueOnForm);}
-    //@Step("Прикрепление файла")
-    //public void setAttachment(File file){attachment.;}
     @Step("email отправителя")
     public void setSubmitter_email(String email){submitter_email.sendKeys(email);}
 
